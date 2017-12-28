@@ -395,7 +395,7 @@ var FULL_ES2 = 0;
 var GL_EMULATE_GLES_VERSION_STRING_FORMAT = 1;
 
 // Some old Android WeChat (Chromium 37?) browser has a WebGL bug that it ignores
-// the offset of a typed array view pointing to an ArrayBuffer. Set this to 
+// the offset of a typed array view pointing to an ArrayBuffer. Set this to
 // 1 to enable a polyfill that works around the issue when it appears. This
 // bug is only relevant to WebGL 1, the affected browsers do not support WebGL 2.
 var WORKAROUND_OLD_WEBGL_UNIFORM_UPLOAD_IGNORED_OFFSET_BUG = 0;
@@ -1075,6 +1075,9 @@ var USE_HARFBUZZ = 0;
 
 // 3 = use cocos2d v3 from emscripten-ports
 var USE_COCOS2D = 0;
+
+// Specify the SDL_mixer version that is being linked against. Must match USE_SDL
+var USE_SDL_MIXER = 1;
 
 // Formats to support in SDL2_image. Valid values: bmp, gif, lbm, pcx, png, pnm, tga, xcf, xpm, xv
 var SDL2_IMAGE_FORMATS = [];

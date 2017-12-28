@@ -55,6 +55,7 @@ Available operations and tasks:
         ogg
         sdl2
         sdl2-image
+        sdl2-mixer
         sdl2-ttf
         sdl2-net
         vorbis
@@ -102,7 +103,7 @@ CXX_WITH_STDLIB = '''
       '''
 
 SYSTEM_TASKS = ['compiler-rt', 'libc', 'libc-mt', 'libc-extras', 'emmalloc', 'emmalloc_debug', 'dlmalloc', 'dlmalloc_threadsafe', 'pthreads', 'dlmalloc_debug', 'dlmalloc_threadsafe_debug', 'libcxx', 'libcxx_noexcept', 'libcxxabi', 'html5']
-USER_TASKS = ['al', 'gl', 'binaryen', 'bullet', 'freetype', 'icu', 'libpng', 'ogg', 'sdl2', 'sdl2-gfx', 'sdl2-image', 'sdl2-ttf', 'sdl2-net', 'vorbis', 'zlib']
+USER_TASKS = ['al', 'gl', 'binaryen', 'bullet', 'freetype', 'icu', 'libpng', 'ogg', 'sdl2', 'sdl2-gfx', 'sdl2-image', 'sdl2-mixer', 'sdl2-ttf', 'sdl2-net', 'vorbis', 'zlib']
 
 temp_files = shared.configuration.get_temp_files()
 logger = logging.getLogger(__file__)
@@ -258,6 +259,8 @@ def main():
       build_port('freetype', 'libfreetype.a', ['-s', 'USE_FREETYPE=1'])
     elif what == 'harfbuzz':
       build_port('harfbuzz', 'libharfbuzz.a', ['-s', 'USE_HARFBUZZ=1'])
+    elif what == 'sdl2-mixer':
+      build_port('sdl2-mixer', 'libsdl2_mixer.a', ['-s', 'USE_SDL=2', '-s', 'USE_SDL_MIXER=2', '-s', 'USE_VORBIS=1'])
     elif what == 'sdl2-ttf':
       build_port('sdl2-ttf', 'libsdl2_ttf.bc', ['-s', 'USE_SDL=2', '-s', 'USE_SDL_TTF=2', '-s', 'USE_FREETYPE=1'])
     elif what == 'binaryen':
